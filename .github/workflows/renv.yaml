@@ -46,7 +46,7 @@ jobs:
           use-public-rspm: true
       - uses: prncevince/actions/setup-renv@main
       - name: Restore packages from lock file
-        shell: bash
+        shell: Rscript {0}
         run: |
-          Rscript -e 'renv::restore()'
+          renv::restore()
           abind::acorn(array(1:36, rep(6,2)))
