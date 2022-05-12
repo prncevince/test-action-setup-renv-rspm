@@ -43,7 +43,7 @@ jobs:
           http-user-agent: ${{ matrix.http-user-agent }}
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
-      - uses: prncevince/actions/setup-renv@main
+      - uses: prncevince/actions/setup-renv@v1.0.0
       - name: Test Package Install 
         shell: Rscript {0}
         run: abind::acorn(array(1:36, rep(6,2)))
