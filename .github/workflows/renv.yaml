@@ -24,7 +24,6 @@ jobs:
         os: [ubuntu-20.04]
         r: ['release']
         r-repo: ['https://packagemanager.rstudio.com/all/__linux__/focal/latest']
-        
     # Runs all jobs concurrently - also will cancel in progress jobs on new trigger events
     concurrency:
       group: ${{ github.workflow }}-${{ github.job }}-${{ github.run_id }}
@@ -45,8 +44,6 @@ jobs:
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
       - uses: prncevince/actions/setup-renv@main
-      - name: Restore packages from lock file
         shell: Rscript {0}
         run: |
-          renv::restore()
           abind::acorn(array(1:36, rep(6,2)))
