@@ -44,6 +44,6 @@ jobs:
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
       - uses: prncevince/actions/setup-renv@main
+      - name: Test Package Install 
         shell: Rscript {0}
-        run: |
-          abind::acorn(array(1:36, rep(6,2)))
+        run: abind::acorn(array(1:36, rep(6,2)))
